@@ -1,0 +1,15 @@
+header {
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+    background: grey;
+}
+.main-body {
+    height: 500px;
+}
+.footer {
+    background: grey;
+    height: 90px;
+    line-height: 90px;
+    text-align: center;
+}
