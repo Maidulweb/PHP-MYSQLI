@@ -3,9 +3,17 @@ header {
     line-height: 90px;
     text-align: center;
     background: grey;
+    color: #fff;
+    font-weight: 900;
 }
 .main-body {
     height: 500px;
+}
+.book-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .footer {
     background: grey;

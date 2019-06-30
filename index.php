@@ -11,11 +11,48 @@
 <body>
  
    <header>
-      <h1>Header</h1>
+     <?php 
+   /* CONNECTION */
+    $conn = mysqli_connect('localhost', 'root', '', 'database');
+    /* INSERT QUERY */
+    if ($conn) {
+       if (isset($_POST['name-submit'])) {
+        $book = $_POST['book']; 
+        $author = $_POST['author']; 
+        $category = $_POST['category'];
+        $sql = "INSERT INTO data (book_name, book_author, category) VALUES ('book', 'author', 'category')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+          echo "Data insert successfully";
+        }else {
+           echo 'Data insert failed';
+        }
+     }
+    }else {
+        echo 'Connection Failed';
+     }
+ ?>
    </header> 
    <div class="main-body">
-     
-   </div>
+      <div class="container">
+       <form class="book-form" action="" method="post">
+            <div class="form-group">
+               <label for="exampleInputEmail1">Book Name</label>
+               <input name="book" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="Book Name">
+            </div>
+            <div class="form-group">
+               <label for="exampleInputEmail1">Author</label>
+               <input name="author" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Author Name">
+            </div>
+            <div class="form-group">
+               <label for="exampleInputPassword1">Category</label>
+               <input name="category" type="text" class="form-control" id="exampleInputPassword1" placeholder="Category">
+            </div>
+            <button name="name-submit" type="submit" class="btn btn-primary">Submit</button>
+       </form>
+      </div><!-- container -->
+   </div><!-- main-body -->
    <div class="footer">
      <h1>Footer</h1>
    </div>
