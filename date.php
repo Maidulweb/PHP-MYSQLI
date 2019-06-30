@@ -24,14 +24,35 @@
     $conn = mysqli_connect('localhost', 'root', '', 'database');
     /* INSERT QUERY */
     if ($conn) {
-       
+       if (isset($_POST['date-submit'])) {
+        $date = $_POST['date']; 
+        $price = $_POST['price']; 
+        $sql = "INSERT INTO price (date, price) VALUES ('$date', '$price')";
+        $result = mysqli_query($conn, $sql);
+        if ($result) {
+          echo "Data insert successfully";
+        }else {
+           echo 'Data insert failed';
+        }
+     }
     }else {
         echo 'Connection Failed';
      }
  ?>
    <div class="main-body">
       <div class="container">
-      
+       <form class="book-form" action="" method="post">
+            <div class="form-group">
+               <label for="exampleInputEmail1">Published Date</label>
+               <input name="date" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                  placeholder="Published Date">
+            </div>
+            <div class="form-group">
+               <label for="exampleInputEmail1">Price</label>
+               <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Book Price">
+            </div>
+            <button name="date-submit" type="submit" class="btn btn-primary">Submit</button>
+       </form>
       </div><!-- container -->
    </div><!-- main-body -->
    <div class="footer">

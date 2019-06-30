@@ -1,8 +1,13 @@
 header {
     height: 90px;
     line-height: 90px;
-    text-align: center;
     background: grey;
+    text-align: center;
+}
+.menu ul li {
+    display: inline-block;
+}
+.menu ul li a {
     color: #fff;
     font-weight: 900;
 }
