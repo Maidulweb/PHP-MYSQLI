@@ -12,13 +12,10 @@ header {
     font-weight: 900;
 }
 .main-body {
-    height: 500px;
+    height: 757px;
 }
 .book-form {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+   padding-top: 215px;
 }
 .footer {
     background: grey;

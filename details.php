@@ -24,11 +24,10 @@
     $conn = mysqli_connect('localhost', 'root', '', 'database');
     /* INSERT QUERY */
     if ($conn) {
-       if (isset($_POST['name-submit'])) {
-        $book = $_POST['book']; 
-        $author = $_POST['author']; 
-        $category = $_POST['category'];
-        $sql = "INSERT INTO data (book_name, book_author, category) VALUES ('$book', '$author', '$category')";
+       if (isset($_POST['date-submit'])) {
+        $time = $_POST['time']; 
+        $price = $_POST['price']; 
+        $sql = "INSERT INTO details (time, price) VALUES ('$date', '$price')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
           echo "Data insert successfully";
@@ -42,22 +41,32 @@
  ?>
    <div class="main-body">
       <div class="container">
-       <form class="book-form" action="" method="post">
-            <div class="form-group">
-               <label for="exampleInputEmail1">Book Name</label>
-               <input name="book" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                  placeholder="Book Name">
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+            <form class="book-form" action="" method="post">
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Published Date</label>
+                     <input name="time" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Published Date">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Price</label>
+                     <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Book Price">
+                  </div>
+                  <!-- <div class="form-group">
+                     <label for="exampleFormControlSelect1">Tag</label>
+                     <select class="form-control" id="exampleFormControlSelect1">
+                     <option>life</option>
+                     <option>style</option>
+                     <option>in</option>
+                     </select>
+                  </div> -->
+                  <button name="details-submit" type="submit" class="btn btn-primary">Submit</button>
+             </form>
             </div>
-            <div class="form-group">
-               <label for="exampleInputEmail1">Author</label>
-               <input name="author" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Author Name">
-            </div>
-            <div class="form-group">
-               <label for="exampleInputPassword1">Category</label>
-               <input name="category" type="text" class="form-control" id="exampleInputPassword1" placeholder="Category">
-            </div>
-            <button name="name-submit" type="submit" class="btn btn-primary">Submit</button>
-       </form>
+            <div class="col-md-3"></div>
+         </div>
       </div><!-- container -->
    </div><!-- main-body -->
    <div class="footer">
