@@ -24,10 +24,10 @@
     $conn = mysqli_connect('localhost', 'root', '', 'database');
     /* INSERT QUERY */
     if ($conn) {
-       if (isset($_POST['date-submit'])) {
-        $time = $_POST['time']; 
+       if (isset($_POST['details-submit'])) {
+        $published = $_POST['time']; 
         $price = $_POST['price']; 
-        $sql = "INSERT INTO details (time, price) VALUES ('$date', '$price')";
+        $sql = "INSERT INTO details (published, price) VALUES ('$published', '$price')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
           echo "Data insert successfully";

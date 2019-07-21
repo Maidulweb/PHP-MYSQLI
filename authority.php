@@ -14,8 +14,8 @@
      <div class="menu">
         <ul>
            <li><a href="index.php">Home</a></li>
-           <li><a href="name.php">Name</a></li>
-           <li><a href="date.php">Date</a></li>
+           <li><a href="authority.php">Authority</a></li>
+           <li><a href="details.php">Details</a></li>
         </ul>
      </div>
    </header> 
@@ -24,7 +24,7 @@
     $conn = mysqli_connect('localhost', 'root', '', 'database');
     /* INSERT QUERY */
     if ($conn) {
-       if (isset($_POST['name-submit'])) {
+       if (isset($_POST['authority-submit'])) {
         $book = $_POST['book']; 
         $author = $_POST['author'];
         $sql = "INSERT INTO authority (book_name, book_author) VALUES ('$book', '$author')";

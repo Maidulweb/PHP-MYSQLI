@@ -31,7 +31,82 @@
  ?>
    <div class="main-body">
       <div class="container">
-      
+        <div class="row">
+          <div class="col-md-6">
+            <div class="home">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Book Name</th>
+                     <th scope="col">Author</th>
+                     <th scope="col">Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+               <?php
+                  $sql = 'SELECT * FROM authority';
+                  $result = mysqli_query($conn, $sql);
+                  if($result){
+                    while ($row = mysqli_fetch_assoc($result)){
+                       $id = $row['id'];
+                       $book = $row['book_name'];
+                       $name = $row['book_author'];
+
+               ?>
+               <tr>
+                     <th scope="row"><?php echo $id;?></th>
+                     <td><?php echo $book?></td>
+                     <td><?php echo $name?></td>
+                     <td><a href="">Edit</a> &uarr;&darr; <a href="">Delete</a></td>
+                  </tr>
+               <?php
+               
+                         }
+                        }
+                  ?>
+               </tbody>
+             </table>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="home">
+            <table class="table">
+               <thead>
+                  <tr>
+                     <th scope="col">ID</th>
+                     <th scope="col">Published Date</th>
+                     <th scope="col">Book Price</th>
+                     <th scope="col">Buy</th>
+                  </tr>
+               </thead>
+               <tbody>
+               <?php
+                  $sql = 'SELECT * FROM details';
+                  $result = mysqli_query($conn, $sql);
+                  if($result){
+                    while ($row = mysqli_fetch_assoc($result)){
+                       $id = $row['id'];
+                       $published = $row['published'];
+                       $price = $row['price'];
+
+               ?>
+               <tr>
+                     <th scope="row"><?php echo $id;?></th>
+                     <td><?php echo $published;?></td>
+                     <td><?php echo $price;?></td>
+                     <td><a href="">Buy</a></td>
+                  </tr>
+               <?php
+               
+                         }
+                        }
+                  ?>
+               </tbody>
+             </table>
+            </div>
+          </div>
+        </div>
       </div><!-- container -->
    </div><!-- main-body -->
    <div class="footer">
