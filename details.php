@@ -13,9 +13,9 @@
    <header>
      <div class="menu">
         <ul>
-           <li><a href="index.php">Home</a></li>
-           <li><a href="name.php">Name</a></li>
-           <li><a href="date.php">Date</a></li>
+        <li><a href="index.php">Home</a></li>
+           <li><a href="authority.php">Book Name</a></li>
+           <li><a href="details.php">Book Details</a></li>
         </ul>
      </div>
    </header> 
