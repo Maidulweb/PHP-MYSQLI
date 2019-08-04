@@ -16,6 +16,7 @@
            <li><a href="index.php">Home</a></li>
            <li><a href="authority.php">Book Name</a></li>
            <li><a href="details.php">Book Details</a></li>
+           <li><a href="join.php">Join</a></li>
         </ul>
      </div>
    </header> 
@@ -53,6 +54,10 @@
                         <label for="exampleInputEmail1">Author</label>
                         <input name="edit-price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $price;?>">
                     </div>
+                    <div class="form-group">
+                     <label for="exampleInputEmail1">Book Id</label>
+                     <input name="book-id" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<?php echo $book_id;?>">
+                 </div>
                     <!-- <div class="form-group">
                         <label for="exampleFormControlSelect1">Tag</label>
                         <select class="form-control" id="exampleFormControlSelect1">
@@ -79,8 +84,9 @@
                  if(isset($_POST['edit'])){
                     $published = $_POST['edit-published'];
                     $price = $_POST['edit-price'];
+                    $book_id = $_POST['book-id'];
                     /* ======  UPDATE ====== */
-                  $sql = "UPDATE details SET published = '$published', price = '$price' WHERE id = '$id'";
+                  $sql = "UPDATE details SET published = '$published', price = '$price', book_id= 'book_id' WHERE id = '$id'";
                   $result = mysqli_query($conn, $sql); 
                   header('Location: index.php');
                  }

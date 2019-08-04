@@ -14,8 +14,9 @@
      <div class="menu">
         <ul>
            <li><a href="index.php">Home</a></li>
-           <li><a href="authority.php">Authority</a></li>
-           <li><a href="details.php">Details</a></li>
+           <li><a href="authority.php">Book Name</a></li>
+           <li><a href="details.php">Book Details</a></li>
+           <li><a href="join.php">Join</a></li>
         </ul>
      </div>
    </header> 

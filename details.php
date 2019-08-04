@@ -13,9 +13,10 @@
    <header>
      <div class="menu">
         <ul>
-        <li><a href="index.php">Home</a></li>
+           <li><a href="index.php">Home</a></li>
            <li><a href="authority.php">Book Name</a></li>
            <li><a href="details.php">Book Details</a></li>
+           <li><a href="join.php">Join</a></li>
         </ul>
      </div>
    </header> 
@@ -27,7 +28,8 @@
        if (isset($_POST['details-submit'])) {
         $published = $_POST['time']; 
         $price = $_POST['price']; 
-        $sql = "INSERT INTO details (published, price) VALUES ('$published', '$price')";
+        $book_id = $_POST['book-id'];
+        $sql = "INSERT INTO details (published, price, book_id) VALUES ('$published', '$price', '$book_id')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
           echo "Data insert successfully";
@@ -53,6 +55,10 @@
                   <div class="form-group">
                      <label for="exampleInputEmail1">Price</label>
                      <input name="price" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Book Price">
+                  </div>
+                  <div class="form-group">
+                     <label for="exampleInputEmail1">Book Id</label>
+                     <input name="book-id" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Book Id">
                   </div>
                   <!-- <div class="form-group">
                      <label for="exampleFormControlSelect1">Tag</label>
