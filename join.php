@@ -33,23 +33,23 @@
    <div class="main-body">
       <div class="container">
         <div class="row">
-            <div class="col-md-3"></div>
-          <div class="col-md-6">
+            <div class="col-md-2"></div>
+          <div class="col-md-8">
             <div class="home">
             <table class="table">
                <thead>
                   <tr>
-                     <th scope="col">ID</th>
+                     <th scope="col">Book Id</th>
                      <th scope="col">Book Name</th>
                      <th scope="col">Author</th>
                      <th scope="col">Published Date</th>
                      <th scope="col">Price</th>
-                     <th scope="col">Book Id</th>
+                     
                   </tr>
                </thead>
                <tbody>
                <?php
-                  $sql = 'SELECT authority.id, authority.book_name, authority.book_author, details.published, details.price FROM authority INNER JOIN details ON authority.id = details.book_id';
+                  $sql = 'SELECT authority.id, authority.book_name, authority.book_author, details.published, details.price, details.book_id FROM authority INNER JOIN details ON authority.id = details.book_id';
                   $result = mysqli_query($conn, $sql);
                   if($result){
                     while ($row = mysqli_fetch_assoc($result)){
@@ -58,14 +58,16 @@
                        $name = $row['book_author'];
                        $published = $row['published'];
                        $price = $row['price'];
+                       $book_id = $row['book_id'];
 
                ?>
                <tr>
-                     <th scope="row"><?php echo $id;?></th>
+                     <td><?php echo $book_id?></td>
                      <td><?php echo $book?></td>
                      <td><?php echo $name?></td>
                      <td><?php echo $published?></td>
                      <td><?php echo $price?></td>
+                     
                   </tr>
                <?php
                
@@ -76,7 +78,7 @@
              </table>
             </div>
           </div>
-          <div class="col-md-3"></div>
+          <div class="col-md-2"></div>
         </div>
       </div><!-- container -->
    </div><!-- main-body -->
