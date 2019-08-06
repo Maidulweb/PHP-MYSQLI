@@ -13,12 +13,12 @@
    <header>
      <div class="menu">
         <ul>
-           <li><a href="index.php">Home</a></li>
-           <li><a href="authority.php">Book Name</a></li>
-           <li><a href="details.php">Book Details</a></li>
-           <li><a href="join.php">Join</a></li>
-           <li><a href="leftjoin.php">Left Join</a></li>
-           <li><a href="rightjoin.php">Right Join</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="authority.php">Book Name</a></li>
+                <li><a href="details.php">Book Details</a></li>
+                <li><a href="join.php">Join</a></li>
+                <li><a href="leftjoin.php">Left Join</a></li>
+                <li><a href="rightjoin.php">Right Join</a></li>
         </ul>
      </div>
    </header> 
@@ -35,33 +35,34 @@
    <div class="main-body">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+            <div class="col-md-2"></div>
+          <div class="col-md-8">
             <div class="home">
             <table class="table">
                <thead>
                   <tr>
-                     <th scope="col">ID</th>
+                     <th scope="col">Id</th>
                      <th scope="col">Book Name</th>
-                     <th scope="col">Author</th>
-                     <th scope="col">Action</th>
+                     <th scope="col">Price</th>
+                     
                   </tr>
                </thead>
                <tbody>
                <?php
-                  $sql = 'SELECT * FROM authority';
+                  $sql = 'SELECT authority.id, authority.book_name, details.price FROM authority LEFT JOIN details ON authority.id = details.book_id ORDER BY authority.id';
                   $result = mysqli_query($conn, $sql);
                   if($result){
                     while ($row = mysqli_fetch_assoc($result)){
                        $id = $row['id'];
                        $book = $row['book_name'];
-                       $name = $row['book_author'];
+                       $price = $row['price'];
 
                ?>
                <tr>
-                     <th scope="row"><?php echo $id;?></th>
+                     <td><?php echo $id?></td>
                      <td><?php echo $book?></td>
-                     <td><?php echo $name?></td>
-                     <td><a href="authorityedit.php?id=<?php echo $id;?>">Edit</a> &uarr;&darr; <a href="authoritydelete.php?id=<?php echo $id;?>">Delete</a></td>
+                     <td><?php echo $price?></td>
+                     
                   </tr>
                <?php
                
@@ -72,41 +73,7 @@
              </table>
             </div>
           </div>
-          <div class="col-md-6">
-            <div class="home">
-            <table class="table">
-               <thead>
-                  <tr>
-                     <th scope="col">ID</th>
-                     <th scope="col">Published Date</th>
-                     <th scope="col">Book Price</th>
-                     <th scope="col">Buy</th>
-                  </tr>
-               </thead>
-               <tbody>
-                  <?php
-                        $sql = 'SELECT * FROM details';
-                        $result = mysqli_query($conn, $sql);
-                        if($result){
-                        while ($row = mysqli_fetch_assoc($result)){
-                           $id = $row['id'];
-                           $published = $row['published'];
-                           $price = $row['price'];
-                  ?>
-                        <tr>
-                           <th scope="row"><?php echo $id;?></th>
-                           <td><?php echo $published;?></td>
-                           <td><?php echo $price;?></td>
-                           <td><a href="detailsedit.php?id=<?php echo $id;?>">Edit</a> &uarr;&darr; <a href="detailsdelete.php?id=<?php echo $id;?>">Delete</a></td>
-                        </tr>
-                  <?php
-                      }
-                     }
-                  ?>
-               </tbody>
-             </table>
-            </div>
-          </div>
+          <div class="col-md-2"></div>
         </div>
       </div><!-- container -->
    </div><!-- main-body -->

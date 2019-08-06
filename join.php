@@ -17,6 +17,8 @@
                 <li><a href="authority.php">Book Name</a></li>
                 <li><a href="details.php">Book Details</a></li>
                 <li><a href="join.php">Join</a></li>
+                <li><a href="leftjoin.php">Left Join</a></li>
+                <li><a href="rightjoin.php">Right Join</a></li>
         </ul>
      </div>
    </header> 
